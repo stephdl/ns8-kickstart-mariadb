@@ -301,6 +301,21 @@ export default {
       // reload configuration
       this.getConfiguration();
     },
+    configureModuleValidationFailed(validationErrors) {
+      this.loading.configureModule = false;
+      let focusAlreadySet = false;
+
+      for (const validationError of validationErrors) {
+        const param = validationError.parameter;
+        // set i18n error message
+        this.error[param] = this.$t("settings." + validationError.error);
+
+        if (!focusAlreadySet) {
+          this.focusElement(param);
+          focusAlreadySet = true;
+        }
+      }
+    },
   },
 };
 </script>
