@@ -39,7 +39,7 @@ buildah config --entrypoint=/ \
     --label="org.nethserver.authorizations=traefik@node:routeadm" \
     --label="org.nethserver.tcp-ports-demand=1" \
     --label="org.nethserver.rootfull=0" \
-    --label="org.nethserver.images=docker.io/mariadb:10.11.5 docker.io/nginx:stable-alpine3.17" \
+    --label="org.nethserver.images=docker.io/mariadb:10.11.9 docker.io/nginx:stable-alpine3.17" \
     "${container}"
 # Commit the image
 buildah commit "${container}" "${repobase}/${reponame}"
